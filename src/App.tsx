@@ -22,9 +22,8 @@ function App() {
     <>
        {/* <button onClick={ handleClick }> My pokemon </button> */}
        <List />
-       { poke.loading ? 
-          <p>Loading</p>:
-       <h1>{poke.name}</h1>}
+       
+       <h1>{poke.name}</h1>
        
     </>
   )

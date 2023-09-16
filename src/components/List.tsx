@@ -22,7 +22,7 @@ function  PokeList() {
             [name]: value
         }
     })
-    dispatch(fetchPokeById(formData.choice))
+    dispatch(fetchPokeById(value))
   }
 
   return (
