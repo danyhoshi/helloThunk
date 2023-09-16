@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchPokeById } from '../redux/features/pokeSlice'
-// import { RootState } from '../redux/store'
-import { ThunkDispatch } from "@reduxjs/toolkit"; //se importa para que no de problema el tipado del dispatch de thunks
+ import { AppDispatch } from '../redux/store'
+//import { ThunkDispatch } from "@reduxjs/toolkit"; //se importa para que no de problema el tipado del dispatch de thunks
 
 function  PokeList() {
   const [formData, setFormData] = React.useState(
@@ -12,7 +12,9 @@ function  PokeList() {
 )
 
   //const  poke  = useSelector((state: RootState) => state.poke)
-  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+ // const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+ const dispatch = useDispatch<AppDispatch>();
+
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const {name, value} = e.target
@@ -22,7 +24,7 @@ function  PokeList() {
             [name]: value
         }
     })
-    dispatch(fetchPokeById(formData.choice))
+    dispatch(fetchPokeById(value))
   }
 
   return (
